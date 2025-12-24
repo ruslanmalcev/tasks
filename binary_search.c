@@ -5,7 +5,7 @@ int bin_search(const void* key,
                const void* arr,
                size_t num,
                size_t size,
-               int(*compar)(const void* a, const void* b)
+               int(*compare)(const void* a, const void* b)
                ){
     size_t left = 0;
     size_t right = num;
@@ -15,7 +15,7 @@ int bin_search(const void* key,
     while((right - left) >1) {
 
         center = (left + right) / 2;
-        differ = compar(key, arr + center*size);
+        differ = compare(key, arr + center*size);
         if(differ > 0)
             left = center;
         else if(differ < 0)
@@ -23,6 +23,7 @@ int bin_search(const void* key,
         else return center;
 
     }
-    if (compar(key, arr + left*size)  == 0) return left;
+    if (compare(key, arr + left*size)  == 0) return left;
     return -1;
 }
+
