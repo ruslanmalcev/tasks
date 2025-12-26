@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 int int_up_compare(const void* a, const void* b)
 {
@@ -27,6 +28,23 @@ int char_up_compare(const void* a, const void* b)
 int string_compare(const void* a, const void* b)
 {
     return  strcmp((const char*)a, (const char*)b);
+}
+
+bool is_sorted(const void* arr, size_t num_elements, size_t element_size, int (*compar)(const void* a, const void* b)){
+    if (num_elements <= 1){
+        return true;
+    }
+    const char* current_element = (const char*)arr;
+    const char* next_element = (const char*)arr + element_size;
+
+    for(size_t i = 0; i< num_elements - 1; ++i){
+        if (compar(current_element, next_element)>0){
+            return false;
+        }
+        current_element += element_size;
+        next_element += element_size;
+    }
+    return true;
 }
 
 void test_heap_sort(){
@@ -81,6 +99,7 @@ void random_test(){
     puts("Test is completed!");
 
 }
+
 
 
 
