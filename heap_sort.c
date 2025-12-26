@@ -1,5 +1,4 @@
 #include <string.h>
-#include <stdbool.h>
 #include <stdlib.h>
 #include "heap_sort.h"
 
@@ -59,21 +58,4 @@ void heap_sort(void* arr,
         swap_val(arr, size, i, 0);
         heapify(arr, i, size, 0, compar);
     }
-}
-
-bool is_sorted(const void* arr, size_t num_elements, size_t element_size, int (*compar)(const void* a, const void* b)){
-    if (num_elements <= 1){
-        return true;
-    }
-    const char* current_element = (const char*)arr;
-    const char* next_element = (const char*)arr + element_size;
-
-    for(size_t i = 0; i< num_elements - 1; ++i){
-        if (compar(current_element, next_element)>0){
-            return false;
-        }
-        current_element += element_size;
-        next_element += element_size;
-    }
-    return true;
 }
