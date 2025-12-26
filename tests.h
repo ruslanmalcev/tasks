@@ -9,7 +9,8 @@ int int_compare(const void* a, const void* b)
 
 int double_compare(const void* a, const void*b)
 {
-    return *(double*)a - *(double*)b;
+    const double epsilon = 1e-9;
+    return fabs(*(double*)a - *(double*)b)<epsilon;
 }
 
 int char_compare(const void* a, const void* b)
@@ -82,3 +83,4 @@ void tests_binary_search(){
     printf("Test is completed!\n");
 
 }
+
