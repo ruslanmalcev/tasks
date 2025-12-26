@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "heap_sort.h"
@@ -62,4 +63,5 @@ void heap_sort(void* arr,
         heapify(arr, i, size, 0, compar);
     }
 }
+
 
