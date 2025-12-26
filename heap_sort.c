@@ -4,8 +4,11 @@
 
 void swap_val(void* arr, size_t size, size_t first, size_t second)
 {
-    void* temp_ptr = malloc(sizeof(size));
-    if(!temp_ptr) exit(1);
+    void* temp_ptr = malloc(sizeof(int));
+    if(!temp_ptr){
+        printf("memory allocation error\n");
+        exit(1);
+    }
 
     memcpy(temp_ptr, arr + first*size, size );
     memcpy(arr + first*size, arr + second*size, size);
@@ -59,3 +62,4 @@ void heap_sort(void* arr,
         heapify(arr, i, size, 0, compar);
     }
 }
+
