@@ -1,13 +1,6 @@
 #ifndef HEAP_SORT_H
 #define HEAP_SORT_H
 
-void swap_val(void* arr, size_t size, size_t first, size_t second);
-void heapify(void* arr,
-             size_t num,
-             size_t size,
-             size_t upper,
-             int(*compar)(const void* a, const void* b)
-             );
 void heap_sort(void* arr,
                size_t num,
                size_t size,
@@ -15,4 +8,5 @@ void heap_sort(void* arr,
                );
 
 #endif // HEAP_SORT_H
+
 
