@@ -15,7 +15,8 @@ int int_down_compare(const void* a, const void* b)
 
 int double_up_compare(const void* a, const void*b)
 {
-     return  *(double*)a > *(double*)b;
+    const double epsilon = 1e-9;
+    return  (*(double*)a - *(double*)b)>epsilon;
 }
 
 int char_up_compare(const void* a, const void* b)
@@ -80,6 +81,7 @@ void random_test(){
     puts("Test is completed!");
 
 }
+
 
 
 
